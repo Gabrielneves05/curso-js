@@ -37,6 +37,8 @@ class ValidateForm {
             valid = false;
             this.createError(password, 'Senha precisa ter entre 6 e 12 caracteres!');
         }
+
+        return valid;
     }
 
     checkFields() {
@@ -88,9 +90,10 @@ class ValidateForm {
 
         if(!user.match(/[a-zA-Z0-9]+$/g)) {
             this.createError(field, 'Nome de usuário precisar conter apenas letras e/ou números!')
+            valid = false;
         }
 
-        return true;
+        return valid;
     }
 
     createError(field, message) {
